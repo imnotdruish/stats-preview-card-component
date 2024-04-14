@@ -49,17 +49,22 @@ img {
 
 /* Main Section */
 body {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
   background-color: var(--clr-bg-main);
   color: var(--clr-neutral-transparent75);
 }
 
 main {
-  min-height: 100vh;
-  max-height: 100px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-content: center;
+  max-width: 90%;
   overflow: hidden;
   gap: 2rem;
   background-color: var(--clr-bg-card);
@@ -68,7 +73,6 @@ main {
 }
 
 .img__container {
-  
   min-height: 100%;
   background: var(--hero-image-mobile), hsl(var(--clr-accent), 0.45);
   background-size: cover;
@@ -79,12 +83,15 @@ main {
   opacity: 0;
 }
 
+.hero__text {
+  text-align: center;
+}
+
 .insights {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-items: center;
-  text-align: center;
   padding-inline: 2rem;
 }
 
@@ -107,7 +114,6 @@ main {
 .stat__container {
   display: flex;
   flex-direction: column;
-  text-align: center;
   padding-bottom: 2rem;
 }
 
@@ -135,56 +141,40 @@ main {
 @media (min-width: 700px) {
 
   main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    max-width: 1000px;
-    min-height: 100px;
-    max-height: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row-reverse;
     justify-content: center;
-    align-content: center;
-    grid-auto-flow: dense;
-  }
-
-  .img__container {
-    grid-column: 2;
-    grid-row: 1 / -1;
-    background: var(--hero-image-desktop), hsl(var(--clr-accent), 0.45);
-    background-size: cover;
-    background-blend-mode: overlay;
-    overflow: hidden;
+    max-width: 1000px;
+    max-height: 450px;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
   }
 
   .hero__text {
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-
-  .stat__container {
-    display: flex;
-    flex-direction: row;
-    padding: 3rem;
+    max-width: 50%;
+    padding: 2rem 1rem;
+    align-content: left;
     justify-content: center;
+    text-align: left;
+    text-wrap: balance;
   }
 
   .insights {
-    display: flex;
-    text-align: left;
-    justify-content: center;
+    padding-bottom: 2rem;
   }
 
-  .insights h1 {
-    font-size: var(--fs-900);
+  .stat__container {
+    flex-direction: row;
+    padding: 2rem;
   }
 
   .stats {
-    display: flex;
-    flex-direction: column;
+    padding-right: calc(15px + (100vw - 700px) * (15 - 30) / (700 -  1000));
   }
-
 }
-
 
 /* Frontend Mentor Footer */
 .attribution {
